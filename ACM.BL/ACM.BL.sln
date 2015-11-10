@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ACM", "ACM\ACM.csproj", "{7
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ACM.BL.TEST", "ACM.BL.TEST\ACM.BL.TEST.csproj", "{18EB8B30-AC4B-483D-9E83-1B7E1C9ECD86}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ACM.Library", "ACM.Library\ACM.Library.csproj", "{BDA2C5F8-792D-469B-B254-8B872AC489AB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ACM.LibaryTest", "ACM.LibaryTest\ACM.LibaryTest.csproj", "{91A0C690-C96F-4D77-9F86-A8D018F4FB34}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{18EB8B30-AC4B-483D-9E83-1B7E1C9ECD86}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{18EB8B30-AC4B-483D-9E83-1B7E1C9ECD86}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{18EB8B30-AC4B-483D-9E83-1B7E1C9ECD86}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BDA2C5F8-792D-469B-B254-8B872AC489AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BDA2C5F8-792D-469B-B254-8B872AC489AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BDA2C5F8-792D-469B-B254-8B872AC489AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BDA2C5F8-792D-469B-B254-8B872AC489AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91A0C690-C96F-4D77-9F86-A8D018F4FB34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91A0C690-C96F-4D77-9F86-A8D018F4FB34}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91A0C690-C96F-4D77-9F86-A8D018F4FB34}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91A0C690-C96F-4D77-9F86-A8D018F4FB34}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
