@@ -50,5 +50,30 @@ namespace ACM.LibaryTest
             Assert.IsNotNull(result);
             //End Assert
         }
+
+        [TestMethod]
+        public void CompareSquenceTest()
+        {
+
+            //Begin Arrange
+            Builder listBuilder = new Builder();
+            //End Arrange
+
+            //Begin Act
+            var result = listBuilder.CompareSquences();
+            //End Act
+
+            //Begin Analyze
+            foreach (var item in result)
+            {
+                TestContext.WriteLine(item.ToString());
+            }
+            //end  Analyze
+
+            //Begin Assert
+            Assert.IsNotNull(result);
+            //End Assert
+
+        }
     }
 }
