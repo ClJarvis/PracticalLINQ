@@ -67,6 +67,11 @@ namespace ACM
                             CustomerTypeId=2}};
             return custList;
         }
+        public IEnumerable<Customer> RetrieveEmptyList()
+        {
+            return Enumerable.Repeat(new Customer(), 5);
+        }
+
         public IEnumerable<Customer> SortByName(List<Customer> customerList)
         {
             return customerList.OrderBy(c => c.LastName)
