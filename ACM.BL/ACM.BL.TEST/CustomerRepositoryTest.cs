@@ -44,6 +44,44 @@ namespace ACM.BL.TEST
         }
 
         [TestMethod]
+        public void GetNamesTest()
+        {
+            //Begin Arrange
+            CustomerRepository repository = new CustomerRepository();
+            var customerList = repository.Retrieve();
+            //End Arrange
+
+            //Begin Act
+            var query = repository.GetNames(customerList);
+            //End Act
+
+            //begin Analyze
+            foreach (var item in query)
+            {
+                TestContext.WriteLine(item);
+
+            }
+            //End Analyze
+
+            //Begin Assert
+            Assert.IsNotNull(query);
+            //End Assert
+        }
+
+        [TestMethod]
+        public void GetNamesAndEmailTest()
+        {
+            // Begin Arrange
+            CustomerRepository repository = new CustomerRepository();
+            var customerList = repository.Retrieve();
+
+            // Begin Act
+            var query = repository.GetNamesandEmail(customerList);
+
+            // NOT REALLY A TEST
+        }
+
+        [TestMethod]
         public void SortByNameTest()
         {
             //Begin Arrange
@@ -60,6 +98,26 @@ namespace ACM.BL.TEST
             Assert.AreEqual(2, result.First().CustomerId);
             Assert.AreEqual("Baggins", result.First().LastName);
             Assert.AreEqual("Bilbo", result.First().FirstName);
+            //End Assert
+        }
+
+        [TestMethod]
+        public void GetNamesAndTypeTest()
+        {
+            //Begin Arrange
+            CustomerRepository repository = new CustomerRepository();
+            var customerList = repository.Retrieve();
+
+            CustomerTypeRepository typeRepository = new CustomerTypeRepository();
+            var customerTypeList = typeRepository.Retrieve();
+
+            //End Arrange
+
+            //Begin Act
+            var query = repository.GetNamesAndType(customerList, customerTypeList);
+            //End Act
+
+            //Begin Assert
             //End Assert
         }
 
@@ -100,6 +158,8 @@ namespace ACM.BL.TEST
             Assert.AreEqual(null, result.Last().CustomerTypeId);
             //End Assert
         }
+
+     
     }
   }
 

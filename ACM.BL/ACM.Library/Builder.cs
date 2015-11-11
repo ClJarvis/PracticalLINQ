@@ -35,7 +35,7 @@ namespace ACM.Library
 
             //    return seq1.Intersect(seq2);
             //    return seq1.Except(seq2);
-            return seq1.Concat(seq2).Distinct();
+            return seq1.Concat(seq2).Distinct(); //Or  return seq1.Union(seq2);
         }
 
     }

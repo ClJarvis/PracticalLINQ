@@ -33,11 +33,51 @@ namespace ACM
             foundCustomer = customerList.Where(c =>
                             c.CustomerId == customerId)
                             .Skip(1)
-                            .FirstOrDefault();      
-                            
+                            .FirstOrDefault();                       
     */            
             return foundCustomer;
         }
+        public IEnumerable<string> GetNames(List<Customer> customerList)
+        {
+            var query = customerList.Select(c => c.LastName + ", " + c.FirstName);
+            return query;
+        }
+
+        public dynamic GetNamesandEmail(List<Customer> customerList)
+        {
+            var query = customerList.Select(c => new
+            {
+                Name = c.LastName + ", " + c.FirstName,
+                c.EmailAddress
+            });
+            foreach (var item in query)
+            {
+                Console.WriteLine(item.Name + ":" + item.EmailAddress);
+            }
+            return query;
+        }
+
+        public dynamic GetNamesAndType(List<Customer> customerList,
+                                List<CustomerType> customerTypeList)
+        {
+            var query = customerList.Join(customerTypeList,
+                                c => c.CustomerTypeId,
+                                ct => ct.CustomerTypeId,
+                                (c, ct) => new
+                                {
+                                    Name = c.LastName + ", " + c.FirstName,
+                                    CustomerTypeName = ct.TypeName
+                                });
+
+            foreach (var item in query)
+            {
+                Console.WriteLine(item.Name + ": " + item.CustomerTypeName);
+            }
+
+            return query;
+        }
+
+
         public List<Customer> Retrieve()
         {
             List<Customer> custList = new List<Customer>
@@ -67,6 +107,12 @@ namespace ACM
                             CustomerTypeId=2}};
             return custList;
         }
+
+        public object GetNamesAndType(List<Customer> customerList, object customerTypeList)
+        {
+            throw new NotImplementedException();
+        }
+
         public IEnumerable<Customer> RetrieveEmptyList()
         {
             return Enumerable.Repeat(new Customer(), 5);
