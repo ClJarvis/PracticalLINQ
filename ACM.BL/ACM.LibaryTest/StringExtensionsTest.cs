@@ -1,6 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-
+using ACM.Library;
 
 namespace ACM.LibaryTest
 {
@@ -14,10 +14,10 @@ namespace ACM.LibaryTest
         {
             //Arrange
             var source = "the return of the king";
-            var expected = "The Return of The King";
+            var expected = "The Return Of The King";
 
             // act
-            //var result = StringExtensions.ConvertToTitleCase(source);
+          //  var result = StringExtensions.ConvertToTitleCase(source);
             var result = source.ConvertToTitleCase();
 
             //Assert

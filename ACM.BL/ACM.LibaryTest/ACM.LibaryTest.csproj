@@ -53,6 +53,12 @@
     <Compile Include="StringExtensionsTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ACM.Library\ACM.Library.csproj">
+      <Project>{bda2c5f8-792d-469b-b254-8b872ac489ab}</Project>
+      <Name>ACM.Library</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>
