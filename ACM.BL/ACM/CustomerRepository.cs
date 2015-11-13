@@ -76,6 +76,17 @@ namespace ACM
 
             return query;
         }
+         
+        public IEnumerable<Customer> GetOverdueCustomers(List<Customer> customerList)
+        {
+            var query = customerList
+                .SelectMany(c => c.InvoiceList
+                        .Where(i => (i.IsPaid ?? false) == false),
+                        (c, i) => c).Distinct();
+
+            return query;
+        }
+
 
 
         public List<Customer> Retrieve()
