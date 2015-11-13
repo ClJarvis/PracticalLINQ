@@ -41,5 +41,39 @@ namespace ACM.BL.TEST
             Assert.AreEqual(62, actual);
             //End Assert
         }
+
+        [TestMethod]
+        public void CalculateTotalUnitsSoldTest()
+        {
+            //Begin Arrange
+            InvoiceRepository repository = new InvoiceRepository();
+            var invoiceList = repository.Retrieve();
+            //End Arrange
+
+            //Begin Act
+            var actual = repository.CalculateTotalUnitsSold(invoiceList);
+            //End Act
+
+            //Begin Assert
+            ////NOT A REAL TEST
+            Assert.AreEqual(62, actual);
+            //End Assert
+        }
+
+        [TestMethod]
+        public void GetInvoiceTotalByIsPaidAndMOnthTest()
+        {
+            //Begin Arrange
+            InvoiceRepository repository = new InvoiceRepository();
+            var invoiceList = repository.Retrieve();
+            //End Arrange
+
+            //Begin Act
+            var query = repository.getInvoiceTotalByIsPaidAndMonth(invoiceList);
+            //End Act
+
+            //Begin Assert
+            //End Assert
+        }
     }
 }

@@ -70,5 +70,43 @@ namespace ACM
         {
             return invoiceList.Sum(inv => inv.NumberOfUnits);
         }
+        public dynamic GetInvoiceTotalByIsPaid(List<Invoice> invoiceList)
+        {
+            var query = invoiceList.GroupBy(inv => inv.IsPaid ?? false,
+                                               inv => inv.TotalAmount,
+                                               (groupKey, invTotal) => new
+                                               {
+                                                   Key = groupKey,
+                                                   InvoiceAmount = invTotal.Sum()
+                                               });
+            foreach (var item in query)
+            {
+                Console.WriteLine(item.Key + ": " + item.InvoiceAmount);
+            }
+            return query;
+        }
+
+        public dynamic getInvoiceTotalByIsPaidAndMonth(List<Invoice>invoiceList)
+        {
+            var query = invoiceList.GroupBy(inv => new
+            {
+                IsPaid = inv.IsPaid ?? false,
+                InvoiceMonth = inv.InvoiceDate.ToString("MMMM")
+                },
+
+                                              inv => inv.TotalAmount,
+                                              (groupKey, invTotal) => new
+                                              {
+                                                  Key = groupKey,
+                                                  InvoiceAmount = invTotal.Sum()
+                                              });
+            foreach (var item in query)
+            {
+                Console.WriteLine(item.Key.IsPaid + "/" +
+                    item.Key.InvoiceMonth + ": " + item.InvoiceAmount);
+            }
+            return query;
+        }
+
     }
 }
