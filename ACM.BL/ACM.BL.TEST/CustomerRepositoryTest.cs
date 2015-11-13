@@ -105,6 +105,28 @@ namespace ACM.BL.TEST
             //End Assert
 
         }
+
+        [TestMethod]
+        public void GetInvoicebyCustomerTypeTest()
+        {
+            //Begin Arrange
+            CustomerRepository repository = new CustomerRepository();
+            var customerList = repository.Retrieve();
+
+            CustomerTypeRepository typeRepsoitory = new CustomerTypeRepository();
+            var customerTypeList = typeRepsoitory.Retrieve();
+
+            //End Arrange
+
+            //Begin Act
+            var query = repository.GetInvoiceTotalByCustomerType(customerList,
+                                                                customerTypeList);
+            //End Act
+
+            //Begin Assert
+            //not really a test I justplay a test on netflix
+            //End Assert    
+        }
         [TestMethod]
         public void SortByNameTest()
         {

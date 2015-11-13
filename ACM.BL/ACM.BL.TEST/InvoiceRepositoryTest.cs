@@ -8,8 +8,61 @@ namespace ACM.BL.TEST
     [TestClass]
     public class InvoiceRepositoryTest
     {
+
         [TestMethod]
-        public void CalculateTotalAAmontInvoiced()
+        public void CalcualteMeantest()
+        {
+            //Begin Arrange
+            InvoiceRepository repository = new InvoiceRepository();
+            var invoiceList = repository.Retrieve();
+            //End Arrange
+
+            //Begin Act
+            var actual = repository.CalcualteMean(invoiceList);
+            //End Act
+
+            //Begin Assert
+            Assert.AreEqual(5M, actual);
+            //End Assert
+        }
+
+        [TestMethod]
+        public void CalculateMedianTest()
+        {
+
+            //Begin Arrange
+            InvoiceRepository repository = new InvoiceRepository();
+            var invoiceList = repository.Retrieve();
+            //End Arrange
+
+            //Begin Act
+            var actual = repository.CalculateMedian(invoiceList);
+            //End Act
+
+            //Begin Assert
+            Assert.AreEqual(5M, actual);
+            //End Assert
+        }
+
+        [TestMethod]
+        public void CalculateModeTest()
+        {
+            //Begin Arrange
+            InvoiceRepository repository = new InvoiceRepository();
+            var invoiceList = repository.Retrieve();
+            //End Arrange
+
+            //Begin Act
+            var actual = repository.CalculateMode(invoiceList);
+            //End Act
+
+            //Begin Assert
+            Assert.AreEqual(0M, actual);
+            //End Assert
+        }
+
+        [TestMethod]
+        public void CalculateTotalAmountInvoiced()
         {
             //Begin Arrange
             InvoiceRepository repository = new InvoiceRepository();

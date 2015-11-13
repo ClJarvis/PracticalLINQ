@@ -4,10 +4,46 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace ACM
 {
     public class InvoiceRepository
     {
+
+        public decimal CalcualteMean(List<Invoice> invoiceList)
+        {
+            return invoiceList.Average(inv => inv.DiscountPercent);
+        }
+
+        public decimal CalculateMedian(List<Invoice> invoiceList)
+        {
+            var sortedList = invoiceList.OrderBy(inv => inv.DiscountPercent);
+
+            int count = invoiceList.Count();
+            int position = count / 2;
+
+            decimal median;
+            if ((count % 2) == 0)
+            {
+                median = (sortedList.ElementAt(position).DiscountPercent +
+                           sortedList.ElementAt(position - 1).DiscountPercent) / 2;
+            }
+            else
+            {
+                median = sortedList.ElementAt(position).DiscountPercent;
+            }
+
+            return median;
+        }
+
+        public decimal CalculateMode(List<Invoice> invoiceList)
+        {
+            var mode = invoiceList.GroupBy(inv => inv.DiscountPercent)
+                .OrderByDescending(group => group.Count())
+                .Select(group => group.Key)
+                .FirstOrDefault();
+            return mode;
+        } 
         ///Summary
         /// Retrives list of invoices
         /// 
@@ -49,7 +85,44 @@ namespace ACM
                             IsPaid=true,
                             Amount=75M,
                             NumberOfUnits=7,
+                            DiscountPercent=0M},
+                             new Invoice() 
+                          { InvoiceId = 5,
+                            CustomerId = 1, 
+                            InvoiceDate=new DateTime(2013, 8, 20),
+                            DueDate=new DateTime(2013, 9,29),
+                            IsPaid=true,
+                            Amount=225M,
+                            NumberOfUnits=22,
+                            DiscountPercent=10M},
+                    new Invoice() 
+                          { InvoiceId = 6,
+                            CustomerId = 2, 
+                            InvoiceDate=new DateTime(2013, 8, 20),
+                            DueDate=new DateTime(2013, 8,20),
+                            IsPaid=false,
+                            Amount=75M,
+                            NumberOfUnits=8,
+                            DiscountPercent=0M},
+                    new Invoice() 
+                          { InvoiceId = 7,
+                            CustomerId = 3, 
+                            InvoiceDate=new DateTime(2013,8, 25),
+                            DueDate=new DateTime(2013, 9,25),
+                            IsPaid=null,
+                            Amount=500M,
+                            NumberOfUnits=42,
+                            DiscountPercent=10M},
+                    new Invoice() 
+                          { InvoiceId = 8,
+                            CustomerId = 4, 
+                            InvoiceDate=new DateTime(2013, 8, 1),
+                            DueDate=new DateTime(2013, 9,1),
+                            IsPaid=true,
+                            Amount=75M,
+                            NumberOfUnits=7,
                             DiscountPercent=0M}};
+
 
             return InvoiceList;
         }
