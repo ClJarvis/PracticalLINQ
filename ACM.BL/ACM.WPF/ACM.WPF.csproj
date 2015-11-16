@@ -69,14 +69,14 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Assets\Views\CustomeListView.xaml">
+    <Page Include="Assets\Views\CustomListView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Views\CustomeListView.xaml.cs">
-      <DependentUpon>CustomeListView.xaml</DependentUpon>
+    <Compile Include="Assets\Views\CustomListView.xaml.cs">
+      <DependentUpon>CustomListView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -107,7 +107,20 @@
   <ItemGroup>
     <Content Include="Assets\Stylesheet1.css" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Assets\ViewModels\" />
+    <Folder Include="NewFolder1\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ACM.BL.TEST\ACM.BL.TEST.csproj">
+      <Project>{18eb8b30-ac4b-483d-9e83-1b7e1c9ecd86}</Project>
+      <Name>ACM.BL.TEST</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ACM\ACM.csproj">
+      <Project>{71fabb45-979c-417d-912b-515a9391df7c}</Project>
+      <Name>ACM</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
